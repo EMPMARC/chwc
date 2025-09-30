@@ -1,0 +1,26 @@
+{
+  "name": "chwc-backend",
+  "version": "1.0.0",
+  "description": "CHWC System Backend API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.15.1",
+    "cors": "^2.8.5",
+    "body-parser": "^2.2.0",
+    "bcrypt": "^6.0.0",
+    "multer": "^2.0.2",
+    "pdfkit": "^0.17.2",
+    "chartjs-node-canvas": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "keywords": ["express", "mysql", "api", "chwc"],
+  "author": "",
+  "license": "ISC"
+}
