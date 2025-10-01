@@ -11,7 +11,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-signature-canvas": "^1.1.0-alpha.2",
     "recharts": "^3.1.2",
     "web-vitals": "^2.1.4"
@@ -45,7 +45,11 @@
     "type": "git",
     "url": "git+https://github.com/TshiamoMokgethwa/chwc-system.git"
   },
-  "keywords": ["react", "frontend", "chwc"],
+  "keywords": [
+    "react",
+    "frontend",
+    "chwc"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
