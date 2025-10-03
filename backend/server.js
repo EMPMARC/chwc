@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config(); // Add this at the top of server.js
 const mysql = require('mysql2');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -9,21 +10,22 @@ const fs = require('fs');
 const PDFDocument = require('pdfkit');
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
-// MySQL Connection with connection pooling for better performance
+
+
 const db = mysql.createPool({
-  host: 'chwc-database.choewaaukon8.eu-west-2.rds.amazonaws.com',
-  user: 'admin',
-  password: 'CHWC2025Project',
-  database: 'chwc',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
   waitForConnections: true,
-  connectionLimit: 10,
+  connectionLimit: parseInt(process.env.DB_CONNECTION_LIMIT || '10'),
   queueLimit: 0
 });
 
