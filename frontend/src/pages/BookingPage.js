@@ -22,7 +22,7 @@ const BookingPage = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ studentNumber })
         });
-        const data = await res.json();
+        const data = await response.json();
         if (!res.ok) throw new Error(data.error || 'Failed to check POR');
         setPorApproved(Boolean(data.approved));
       } catch (e) {
