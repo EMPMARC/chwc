@@ -23,7 +23,7 @@ const BookingPage = () => {
           body: JSON.stringify({ studentNumber })
         });
         const data = await response.json();
-        if (!res.ok) throw new Error(data.error || 'Failed to check POR');
+        if (!response.ok) throw new Error(data.error || 'Failed to check POR');
         setPorApproved(Boolean(data.approved));
       } catch (e) {
         setPorError(e.message);
