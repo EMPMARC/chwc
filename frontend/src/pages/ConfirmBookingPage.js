@@ -22,7 +22,7 @@ const ConfirmBooking = () => {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ studentNumber })
         });
-        const data = await res.json();
+        const data = await response.json();
         setPorApproved(Boolean(data.approved));
       } catch (e) {
         setPorApproved(false);
