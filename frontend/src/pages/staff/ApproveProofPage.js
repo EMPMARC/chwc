@@ -1,3 +1,4 @@
+import API_URL from '../../config';
 import React, { useState } from "react";
 
 const ApproveProofPage = () => {
@@ -16,7 +17,7 @@ const ApproveProofPage = () => {
     }
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:5001/api/por/${encodeURIComponent(studentNumberInput.trim())}`);
+      const res = await fetch(`${API_URL}/api/por/${encodeURIComponent(studentNumberInput.trim())}`);
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
         throw new Error(data.error || "POR not found for this student");
@@ -35,7 +36,7 @@ const ApproveProofPage = () => {
     setDecisionLoading(true);
     setError("");
     try {
-      const res = await fetch(`http://localhost:5001/api/por/${encodeURIComponent(por.student_number)}/decision`, {
+      const res = await fetch(`${API_URL}/api/por/${encodeURIComponent(por.student_number)}/decision`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ decision: next })
@@ -88,7 +89,7 @@ const ApproveProofPage = () => {
           </div>
           <div style={{ display: 'flex', gap: 8 }}>
             <a
-              href={`http://localhost:5001/api/download-file/${por.id}`}
+              href={`${API_URL}/api/download-file/${por.id}`}
               target="_blank"
               rel="noopener noreferrer"
               style={{ padding: '8px 12px', border: '1px solid #0b5ed7', borderRadius: 6, color: '#0b5ed7', textDecoration: 'none' }}

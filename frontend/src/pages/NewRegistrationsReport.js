@@ -1,3 +1,4 @@
+import API_URL from '../config';
 import React, { useMemo, useState, useEffect } from "react";
 import {
 LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -22,7 +23,7 @@ const useOnboardingData = (from, to, role) => {
         if (to) params.to = to;
         if (role && role !== "All") params.role = role;
         
-        const response = await axios.get('http://localhost:5001/api/onboarding-data', { params });
+        const response = await axios.get('http://${API_URL}/api/onboarding-data', { params });
         setData(response.data);
       } catch (err) {
         console.error('Error fetching onboarding data:', err);

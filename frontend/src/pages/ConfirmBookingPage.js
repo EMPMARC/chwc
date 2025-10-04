@@ -1,3 +1,4 @@
+import API_URL from '../config';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -16,7 +17,7 @@ const ConfirmBooking = () => {
     }
     const check = async () => {
       try {
-        const res = await fetch('http://localhost:5001/api/check-por', {
+       const response = await fetch('http://${API_URL}/api/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ studentNumber })
@@ -51,7 +52,7 @@ const ConfirmBooking = () => {
         previousAppointmentRef: null
       });
 
-      const response = await fetch('http://localhost:5001/api/save-appointment', {
+      const response = await fetch('http://${API_URL}/api/save-appointment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

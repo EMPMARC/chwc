@@ -1,3 +1,4 @@
+import API_URL from '../../config';
 import React, { useState } from "react";
 
 const EmergencyOnboardingPage = () => {
@@ -109,7 +110,7 @@ const EmergencyOnboardingPage = () => {
 
       console.log('Submitting emergency report:', submissionData);
 
-      const response = await fetch('http://localhost:5001/api/emergency-onboarding', {
+      const response = await fetch('${API_URL}/api/emergency-onboarding', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

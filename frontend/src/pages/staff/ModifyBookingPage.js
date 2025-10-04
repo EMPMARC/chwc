@@ -1,4 +1,4 @@
-
+import API_URL from '../../config';
 import React, { useState } from "react";
 
 const ModifyBookingPage = () => {
@@ -27,7 +27,7 @@ const ModifyBookingPage = () => {
     setSelectedAppointment(null);
 
     try {
-      const response = await fetch(`http://localhost:5001/api/appointments/student/${studentNumber}`);
+      const response = await fetch(`${API_URL}/api/appointments/student/${studentNumber}`);
       const data = await response.json();
 
       if (response.ok) {
@@ -72,7 +72,7 @@ const ModifyBookingPage = () => {
     setError("");
 
     try {
-      const response = await fetch(`http://localhost:5001/api/appointments/${selectedAppointment.id}`, {
+      const response = await fetch(`${API_URL}/api/appointments/${selectedAppointment.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const ModifyBookingPage = () => {
     setError("");
 
     try {
-      const response = await fetch(`http://localhost:5001/api/appointments/${selectedAppointment.id}/cancel`, {
+      const response = await fetch(`${API_URL}/api/appointments/${selectedAppointment.id}/cancel`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

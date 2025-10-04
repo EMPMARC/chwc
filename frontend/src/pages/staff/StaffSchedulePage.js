@@ -51,7 +51,7 @@ export default function StaffSchedulePage() {
 
       // Save each staff member's schedule
       for (const staff of schedule) {
-        await axios.post("http://localhost:5001/api/save-staff-schedule", {
+        await axios.post("http://${API_URL}/api/save-staff-schedule", {
           staff_name: staff.name,
           month,
           day: selectedDay,

@@ -1,3 +1,4 @@
+import API_URL from '../config';
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +14,7 @@ const PatientDashboard = () => {
     // Check current onboarding and POR status (in case they were updated elsewhere)
     const checkCurrentStatus = async () => {
       try {
-        const onboardingResponse = await fetch('http://localhost:5001/api/check-onboarding', {
+        const onboardingResponse = await fetch('http://${API_URL}/api/check-onboarding', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -23,7 +24,7 @@ const PatientDashboard = () => {
         
         const onboardingData = await onboardingResponse.json();
         
-        const porResponse = await fetch(`http://localhost:5001/api/student-files/${studentNumber}`);
+        const porResponse = await fetch(`${API_URL}/api/student-files/${studentNumber}`);
         const porData = await porResponse.json();
         
         if (onboardingResponse.ok && porResponse.ok) {

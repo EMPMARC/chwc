@@ -1,3 +1,4 @@
+import API_URL from '../config';
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +17,7 @@ const BookingPage = () => {
     }
     const check = async () => {
       try {
-        const res = await fetch('http://localhost:5001/api/check-por', {
+       const response = await fetch(`${API_URL}/api/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ studentNumber })

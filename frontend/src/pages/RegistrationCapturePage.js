@@ -1,3 +1,4 @@
+import API_URL from '../config';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,7 +14,7 @@ const RegistrationCapturePage = () => {
   // Wrap fetchUploadedFiles with useCallback to memoize it
   const fetchUploadedFiles = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:5001/api/student-files/${studentNumber}`);
+      const response = await fetch(`${API_URL}/api/student-files/${studentNumber}`);
       const data = await response.json();
       
       if (data.files) {
@@ -72,7 +73,7 @@ const RegistrationCapturePage = () => {
     formData.append('studentNumber', studentNumber);
 
     try {
-      const response = await fetch('http://localhost:5001/api/upload-por-multer', {
+      const response = await fetch('http://${API_URL}/api/upload-por-multer', {
         method: 'POST',
         body: formData,
       });
@@ -108,7 +109,7 @@ const RegistrationCapturePage = () => {
 
   const handleDownload = async (fileId, fileName) => {
     try {
-      const response = await fetch(`http://localhost:5001/api/download-file/${fileId}`);
+      const response = await fetch(`http://${API_URL}/api/download-file/${fileId}`);
       
       if (response.ok) {
         const blob = await response.blob();

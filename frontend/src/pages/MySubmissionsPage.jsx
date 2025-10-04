@@ -18,7 +18,7 @@ const MySubmissionsPage = () => {
           return;
         }
 
-        const response = await fetch(`http://localhost:5001/api/student-appointments/${studentNumber}`);
+        const response = await fetch(`http://${API_URL}/api/student-appointments/${studentNumber}`);
         const data = await response.json();
         
         if (response.ok) {
